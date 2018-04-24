@@ -1243,7 +1243,7 @@ window.addEventListener('error', function (e) {
 	<tr>
 		<td>
 		<%-- tab container component --%>
-		<table style="border-collapse:initial;" width="100%"  cellspacing="0" border="0" cellpadding="0">
+		<table style="border-collapse:initial;" width="98%"  align="center" cellspacing="0" border="0" cellpadding="0">
 			<tr height="2"><td></td></tr>
 				<tr height="25"> 
 					<td width="20%" valign="bottom" class="tab" align="center" nowrap>
@@ -1265,7 +1265,7 @@ window.addEventListener('error', function (e) {
 			You can use nearly any combination of these classes to create more dynamic and flexible layouts.
 			Each tier of classes scales up, meaning if you plan on setting the same widths for xs and sm, you only need to specify xs.
 			-->
-	 	 <table width="100%" class="tabThinBorderWhite" border="0" cellspacing="0" cellpadding="0">
+	 	 <table width="98%" align="center" class="tabThinBorderWhite" border="0" cellspacing="0" cellpadding="0">
 	 	    <tr height="20">
 		 	    <td width="2%">&nbsp;</td>
 		 	    <td>&nbsp;
@@ -1273,7 +1273,7 @@ window.addEventListener('error', function (e) {
 				  <div class="row">
 	  				
 					<div class="col-md-1 text12">
-						<font class="text12">Avdeling:</font><br>
+						<font class="text14">Avdeling:</font><br>
 		        		<select class="inputTextMediumBlue" name="selectAvd" id="selectAvd" multiple="multiple" title="-velg-">
 		 				  	<c:forEach var="record" items="${model.avdList}" >
 		 				  		<option value="${record.koakon}">${record.koakon}</option>
@@ -1282,7 +1282,7 @@ window.addEventListener('error', function (e) {
 					</div>	
 						
 					<div class="col-md-1 text12">
-						<font class="text12">Signatur:</font><br>
+						<font class="text14">Signatur:</font><br>
 		        		<select class="inputTextMediumBlue" name="selectSign" id="selectSign" multiple="multiple" title="-velg-">
 	 						<c:forEach var="record" items="${model.signatureList}" >
 		 				  		<option value="${record.ksisig}">${record.ksisig}</option>
@@ -1291,17 +1291,17 @@ window.addEventListener('error', function (e) {
 					</div>
 	
 					<div class="col-md-1 text12">
-						<font class="text12">Fra dato:</font><br>
+						<font class="text14">Fra dato:</font><br>
 						<input type="text" class="inputTextMediumBlueMandatoryField" name="selectFradato" id="selectFradato" size="9" maxlength="8">
 	  				</div>	 	
 	
 					<div class="col-md-1 text12">
-						<font class="text12">Til dato:</font><br>
+						<font class="text14">Til dato:</font><br>
 						<input type="text" class="inputTextMediumBlueMandatoryField" name="selectTildato" id="selectTildato" size="9" maxlength="8">
 	  				</div>	
 
 					<div class="col-md-1 text12 text-nowrap">
-  		    			<font class="text12">Mottaker:</font><br>
+  		    			<font class="text14">Mottaker:</font><br>
 						<input type="text" class="inputText" name="selectKundenr" id="selectKundenr" size="9" maxlength="8" >  	
 						<a tabindex="-1" id="kundenrLink">
 							<img style="cursor:pointer;vertical-align: middle;" src="resources/images/find.png" width="14px" height="14px" border="0">
@@ -1309,14 +1309,14 @@ window.addEventListener('error', function (e) {
 					</div> 	
 
 					<div class="col-md-2 text12">
-  		    			<font class="text12">Avsender:</font><br>
+  		    			<font class="text14">Avsender:</font><br>
 						<input type="text" class="inputText" name="selectKundenr_avs" id="selectKundenr_avs" size="9" maxlength="8" >  	
 						<a tabindex="-1" id="kundenr_avsLink">
 							<img style="cursor:pointer;vertical-align: middle;" src="resources/images/find.png" width="14px" height="14px" border="0">
 						</a>&nbsp;	
 					</div> 
 
-	  		    	<div class="col-md-5" align="right">
+	  		    	<div class="col-md-1" align="left">
 	  		    		<br>
 	   	              	<button class="inputFormSubmit" onclick="load_data()" autofocus>Hent data</button> 
 					</div>	
@@ -1325,7 +1325,7 @@ window.addEventListener('error', function (e) {
   
 	  			  <div class="padded-row-small">&nbsp;</div>
 
-<div id="toggleArea">
+	<div id="toggleArea">
 
 				  <div class="row">
 					<div class="col-md-12">
