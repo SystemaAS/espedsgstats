@@ -1243,7 +1243,7 @@ window.addEventListener('error', function (e) {
 	<tr>
 		<td>
 		<%-- tab container component --%>
-		<table style="border-collapse:initial;" width="98%"  align="center" cellspacing="0" border="0" cellpadding="0">
+		<table style="border-collapse:initial;" width="100%"  cellspacing="0" border="0" cellpadding="0">
 			<tr height="2"><td></td></tr>
 				<tr height="25"> 
 					<td width="20%" valign="bottom" class="tab" align="center" nowrap>
@@ -1265,7 +1265,7 @@ window.addEventListener('error', function (e) {
 			You can use nearly any combination of these classes to create more dynamic and flexible layouts.
 			Each tier of classes scales up, meaning if you plan on setting the same widths for xs and sm, you only need to specify xs.
 			-->
-	 	 <table width="98%" align="center" class="tabThinBorderWhite" border="0" cellspacing="0" cellpadding="0">
+	 	 <table width="100%" class="tabThinBorderWhite" border="0" cellspacing="0" cellpadding="0">
 	 	    <tr height="20">
 		 	    <td width="2%">&nbsp;</td>
 		 	    <td>&nbsp;
@@ -1316,7 +1316,7 @@ window.addEventListener('error', function (e) {
 						</a>&nbsp;	
 					</div> 
 
-	  		    	<div class="col-md-1" align="left">
+	  		    	<div class="col-md-5" align="right">
 	  		    		<br>
 	   	              	<button class="inputFormSubmit" onclick="load_data()" autofocus>Hent data</button> 
 					</div>	
