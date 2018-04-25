@@ -55,12 +55,12 @@
 	</script>
 	<input type="hidden" name="language" id=language value="${user.usrLang}">
 	
-    <table class="noBg" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <table class="noBg" width="1400" border="0" cellspacing="0" cellpadding="0">
 		<%--Banner --%>
 	 	<tr class="clazzTdsBanner" id="tdsBanner" style="visibility:visible">
 	 	 	<%-- class="grayTitanBg" --%>
 		 	<td height="60" class="headerTdsBannerAreaBg" width="100%" align="left" colspan="3"> 
-	    			 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	    			 <table width="1400" border="0" cellspacing="0" cellpadding="0">
 	    			 	<tr>
 				        	<td>&nbsp;</td>
 				        	<td>&nbsp;</td>
@@ -123,7 +123,7 @@
 		
 		<tr >
 			<td height="23" class="tabThinBorderLightGreenLogoutE2" width="100%" align="left" colspan="3"> 
-    			 <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    			 <table width="1400" border="0" cellspacing="0" cellpadding="0">
 				 	<tr >
 			    		<td class="text12" width="70%" align="left" >&nbsp;&nbsp;
 			    			<%-- --------------------------- --%>

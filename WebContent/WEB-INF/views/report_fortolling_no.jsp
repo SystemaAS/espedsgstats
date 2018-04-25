@@ -4,7 +4,7 @@
 <!-- =====================end header ==========================-->
 <style>
 .horizontal-scroll-group > .row {
-  width: 1200px;
+  width: 1300px;
   overflow-x: scroll;
   white-space: nowrap;
   display: inline-block;
@@ -959,7 +959,7 @@ function load_data() {
 			});	
 		
 		varuposterChart
-			.width(1200)
+			.width(1300)
 			.height(500)
 			.dimension(monthDim)   
 			.group(monthDimGroup) 
@@ -1325,7 +1325,7 @@ window.addEventListener('error', function (e) {
   
 	  			  <div class="padded-row-small">&nbsp;</div>
 
-	<div id="toggleArea">
+		<div id="toggleArea">
 
 				  <div class="row">
 					<div class="col-md-12">
