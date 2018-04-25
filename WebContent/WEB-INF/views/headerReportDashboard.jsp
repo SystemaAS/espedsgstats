@@ -23,8 +23,9 @@
 	<script type="text/javascript" src="resources/js/jquery.blockUI.js"></script>
 	<script type="text/javascript" src="resources/js/systemaWebGlobal.js?ver=${user.versionEspedsg}"></script>
 	<script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<!-- using dc.js as the driver of upgrading of d3 and crossfilter, hence the https://dc-js.github.io/dc.js/js -->
-	<script type="text/javascript" src="https://dc-js.github.io/dc.js/js/d3.js"></script>
+	<!-- using dc.js as the driver of upgrading of d3 and crossfilter, hence the https://dc-js.github.io/dc.js/js, NO! They are using latest/createt! Specify d3 version-->
+	<!--script type="text/javascript" src="https://dc-js.github.io/dc.js/js/d3.js"></script-->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
 	<script type="text/javascript" src="https://d3js.org/d3-queue.v3.min.js"></script>
 	<script type="text/javascript" src="https://dc-js.github.io/dc.js/js/crossfilter.js"></script>
 	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
