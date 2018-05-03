@@ -34,6 +34,7 @@
 }
 
 .col-md-4 { margin-right: -30px; margin-left: 15px;  }
+.col-md-4b { margin-right: -10px; margin-left: 20px;  }
 
 .ui-dialog{font-size:10pt;}
 .ui-datepicker { font-size:9pt;}
@@ -1270,7 +1271,58 @@ window.addEventListener('error', function (e) {
 		 	    <td width="2%">&nbsp;</td>
 		 	    <td>&nbsp;
 				<div class="container-fluid">
-				  <div class="row">
+				  	<table width="100%">
+				  		<tr>
+		 	    		<td class="text12" >
+		 	    			<font class="text14">Avdeling:</font><br>
+		        			<select class="inputTextMediumBlue" name="selectAvd" id="selectAvd" multiple="multiple" title="-velg-">
+		 				  	<c:forEach var="record" items="${model.avdList}" >
+		 				  		<option value="${record.koakon}">${record.koakon}</option>
+							</c:forEach>  
+							</select>	
+						</td>
+						<td class="text12">
+		 	    			<font class="text14">Signatur:</font><br>
+		        			<select class="inputTextMediumBlue" name="selectSign" id="selectSign" multiple="multiple" title="-velg-">
+	 						<c:forEach var="record" items="${model.signatureList}" >
+		 				  		<option value="${record.ksisig}">${record.ksisig}</option>
+							</c:forEach>   
+							</select>	
+						</td>
+						<td class="text12">
+							<font class="text14">Fra dato:</font><br>
+							<input type="text" class="inputTextMediumBlueMandatoryField" name="selectFradato" id="selectFradato" size="9" maxlength="8">
+	  					</td>	 	
+	
+						<td class="text12" >
+		 	    			<font class="text14">Til dato:</font><br>
+							<input type="text" class="inputTextMediumBlueMandatoryField" name="selectTildato" id="selectTildato" size="9" maxlength="8">
+						</td>
+						<td class="text12" >
+							<font class="text14">Mottaker:</font><br>
+							<input type="text" class="inputText" name="selectKundenr" id="selectKundenr" size="9" maxlength="8" >  	
+							<a tabindex="-1" id="kundenrLink">
+								<img style="cursor:pointer;vertical-align: middle;" src="resources/images/find.png" width="14px" height="14px" border="0">
+							</a>&nbsp;	
+		 	    		</td>
+		 	    		
+		 	    		<td class="text12" >
+		 	    			<font class="text14">Avsender:</font><br>
+							<input type="text" class="inputText" name="selectKundenr_avs" id="selectKundenr_avs" size="9" maxlength="8" >  	
+							<a tabindex="-1" id="kundenr_avsLink">
+								<img style="cursor:pointer;vertical-align: middle;" src="resources/images/find.png" width="14px" height="14px" border="0">
+							</a>&nbsp;
+		 	    		</td>
+		 	    		<td class="text12" align="right">
+		 	    			<br>
+		 	    			<button class="inputFormSubmit" onclick="load_data()" autofocus>Hent data</button>
+		 	    		</td> 
+		 	    		</tr>
+		 	    		<tr height="15"><td>&nbsp;</td></tr>
+				  	</table>
+				  
+	  				<%--
+					<div class="row" style="width: 100%;">
 	  				
 					<div class="col-md-1 text12">
 						<font class="text14">Avdeling:</font><br>
@@ -1308,7 +1360,7 @@ window.addEventListener('error', function (e) {
 						</a>&nbsp;	
 					</div> 	
 
-					<div class="col-md-2 text12">
+					<div class="col-md-4b text12 text-nowrap">
   		    			<font class="text14">Avsender:</font><br>
 						<input type="text" class="inputText" name="selectKundenr_avs" id="selectKundenr_avs" size="9" maxlength="8" >  	
 						<a tabindex="-1" id="kundenr_avsLink">
@@ -1319,12 +1371,14 @@ window.addEventListener('error', function (e) {
 	  		    	<div class="col-md-5" align="right">
 	  		    		<br>
 	   	              	<button class="inputFormSubmit" onclick="load_data()" autofocus>Hent data</button> 
-					</div>	
-	
-				  </div>
+					</div>
+					</div>
+    			  	<div class="padded-row-small">&nbsp;</div>
   
-	  			  <div class="padded-row-small">&nbsp;</div>
-
+					 --%>	
+	
+				  
+	
 		<div id="toggleArea">
 
 				  <div class="row">
