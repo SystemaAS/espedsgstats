@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import no.systema.main.url.store.MainUrlDataStore;
 import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
+import no.systema.tvinn.sad.z.maintenance.felles.url.store.TvinnSadMaintenanceFellesUrlDataStore;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -44,7 +46,7 @@ public class JsonResponseOutputterController {
 	
 	/**
 	 * Test call 
-	 * http://localhost:8080/espedsgebook/sytsuite.do?user=OSCAR
+	 * http://localhost:8080/espedsgstats/sytsuite.do?user=OSCAR
 	 * @return
 	 */
 	@RequestMapping(value="sytsuite.do", method={RequestMethod.GET, RequestMethod.POST})
@@ -109,8 +111,12 @@ public class JsonResponseOutputterController {
 		List<Object> listObj= new ArrayList<Object>();
 		Object urlStoreObj = null;
 		
+		urlStoreObj = new TvinnSadMaintenanceFellesUrlDataStore();
+		listObj.add(urlStoreObj);
+		
 		urlStoreObj = new MaintenanceMainUrlDataStore();
 		listObj.add(urlStoreObj);
+		
 		urlStoreObj = new MainUrlDataStore();
 		listObj.add(urlStoreObj);
 		
