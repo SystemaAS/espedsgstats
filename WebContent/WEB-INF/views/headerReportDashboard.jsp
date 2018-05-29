@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<link href="resources/${user.cssEspedsg}?ver=${user.versionEspedsg}" rel="stylesheet" type="text/css"/>
+		<link href="/espedsg2/resources/${user.cssEspedsg}?ver=${user.versionEspedsg}" rel="stylesheet" type="text/css"/>
 		 <link rel="stylesheet" type="text/css" href="resources/selectlist/css/selectlist.css" />
 				<%-- datatables grid CSS --%>
 		<link type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css" rel="stylesheet">
