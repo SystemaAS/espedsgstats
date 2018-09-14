@@ -28,7 +28,7 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
 	<script type="text/javascript" src="https://d3js.org/d3-queue.v3.min.js"></script>
 	<script type="text/javascript" src="https://dc-js.github.io/dc.js/js/crossfilter.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
