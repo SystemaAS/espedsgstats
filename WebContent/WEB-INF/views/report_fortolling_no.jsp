@@ -62,8 +62,9 @@ var signaturerDescUrl = "/syjservicestn/syjsSYFT10R.do?user=${user.user}";
 var avsnittDescUrl = "/syjservicesbcore/syjsSADKAA.do?user=${user.user}";
 //var baseImportUrl = "/espedsg/report_dashboard_toSadImport.do?action=doFetch";
 //var baseExportUrl = "/espedsg/report_dashboard_toSadExport.do?action=doFetch";
-var baseImportUrl = "/espedsgtvinnsad/logonAnalyseReports_toSad.do?user=${user.user}&dp=${user.encryptedPassword}"; 
-var baseExportUrl = "/espedsgtvinnsad/logonAnalyseReports_toSad.do?sade=Y&user=${user.user}&dp=${user.encryptedPassword}";
+var userPass = encodeURIComponent("${user.encryptedPassword}");
+var baseImportUrl = "/espedsgtvinnsad/logonAnalyseReports_toSad.do?user=${user.user}&dp=" + userPass; 
+var baseExportUrl = "/espedsgtvinnsad/logonAnalyseReports_toSad.do?sade=Y&user=${user.user}&dp=" + userPass;
 
 var merknader;
 var avdelinger;
