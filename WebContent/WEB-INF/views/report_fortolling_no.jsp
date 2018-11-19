@@ -193,7 +193,8 @@ function load_data() {
 	var selectedSign = jq('#selectSign').val();
 	var selectedKundenr = jq('#selectKundenr').val();
 	var selectedKundenr_avs = jq('#selectKundenr_avs').val();
-
+	var isHead = jq('#selectHeadOrRow').is(':checked'); 
+	
 	if (selectedAvd != null && selectedAvd != "")	{
 		runningUrl = runningUrl + "&avdelings="+selectedAvd; 
 	}
@@ -359,13 +360,23 @@ function load_data() {
 		var  waxxDisplay = dc.numberDisplay("#waxx");	
 		var  waxxiDisplay = dc.numberDisplay("#waxxi");	
 		//Groups
-		var  avdDimGroup = avdDim.group().reduceSum(function(d) {return d.reg_vareposter;});
-		var  sisgDimGroup = sisgDim.group().reduceSum(function(d) {return d.reg_vareposter;});
-		var  typeDimGroup = typeDim.group().reduceSum(function(d) {return d.reg_vareposter;});
-		var  edimDimGroup = edimDim.group().reduceSum(function(d) {return d.reg_vareposter;});
-		var  inputTypeDimGroup = inputTypeDim.group().reduceSum(function(d) {return d.reg_vareposter;});
-		var  openDaysDimGroup = openDaysDim.group().reduceSum(function(d) {return d.reg_vareposter;});
-		var  avsenderLandDimGroup = avsenderLandDim.group().reduceSum(function(d) {return d.reg_vareposter;});
+		if (isHead) {
+			var  avdDimGroup = avdDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
+			var  sisgDimGroup = sisgDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
+			var  typeDimGroup = typeDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
+			var  edimDimGroup = edimDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
+			var  inputTypeDimGroup = inputTypeDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
+			var  openDaysDimGroup = openDaysDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
+			var  avsenderLandDimGroup = avsenderLandDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
+		} else {
+	 		var  avdDimGroup = avdDim.group().reduceSum(function(d) {return d.reg_vareposter;});
+	 		var  sisgDimGroup = sisgDim.group().reduceSum(function(d) {return d.reg_vareposter;});
+	 		var  typeDimGroup = typeDim.group().reduceSum(function(d) {return d.reg_vareposter;});
+	 		var  edimDimGroup = edimDim.group().reduceSum(function(d) {return d.reg_vareposter;});
+	 		var  inputTypeDimGroup = inputTypeDim.group().reduceSum(function(d) {return d.reg_vareposter;});
+	 		var  openDaysDimGroup = openDaysDim.group().reduceSum(function(d) {return d.reg_vareposter;});
+	 		var  avsenderLandDimGroup = avsenderLandDim.group().reduceSum(function(d) {return d.reg_vareposter;});
+		}
 		//Group reduce
 	    var dateDimGroup =  dateDim.group().reduce(   
 	            /* callback for when data is added to the current filter results */
@@ -1313,6 +1324,12 @@ window.addEventListener('error', function (e) {
 								<img style="cursor:pointer;vertical-align: middle;" src="resources/images/find.png" width="14px" height="14px" border="0">
 							</a>&nbsp;
 		 	    		</td>
+
+		 	    		<td class="text12" >
+		 	    			<font class="text14">Fortollinger(exkl. linjer):</font><br>
+							<input type="checkbox" name="selectHeadOrRow" id="selectHeadOrRow">  	
+		 	    		</td>
+
 		 	    		<td class="text12" align="right">
 		 	    			<br>
 		 	    			<button class="inputFormSubmit" onclick="load_data()" autofocus>Hent data</button>
