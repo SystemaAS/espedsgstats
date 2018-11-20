@@ -362,13 +362,13 @@ function load_data() {
 		var  waxxiDisplay = dc.numberDisplay("#waxxi");	
 		//Groups
 		if (isHead) {
-			var  avdDimGroup = avdDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
-			var  sisgDimGroup = sisgDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
-			var  typeDimGroup = typeDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
-			var  edimDimGroup = edimDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
-			var  inputTypeDimGroup = inputTypeDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
-			var  openDaysDimGroup = openDaysDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
-			var  avsenderLandDimGroup = avsenderLandDim.group().reduceSum(function(d) {return d.deklarasjonsnr;});
+			var  avdDimGroup = avdDim.group().reduceSum(function(d) {return 1;});
+			var  sisgDimGroup = sisgDim.group().reduceSum(function(d) {return 1;});
+			var  typeDimGroup = typeDim.group().reduceSum(function(d) {return 1;});
+			var  edimDimGroup = edimDim.group().reduceSum(function(d) {return 1;});
+			var  inputTypeDimGroup = inputTypeDim.group().reduceSum(function(d) {return 1;});
+			var  openDaysDimGroup = openDaysDim.group().reduceSum(function(d) {return 1;});
+			var  avsenderLandDimGroup = avsenderLandDim.group().reduceSum(function(d) {return 1;});
 		} else {
 	 		var  avdDimGroup = avdDim.group().reduceSum(function(d) {return d.reg_vareposter;});
 	 		var  sisgDimGroup = sisgDim.group().reduceSum(function(d) {return d.reg_vareposter;});
@@ -635,8 +635,12 @@ function load_data() {
 			   		legends
 			   			.append('title').text(function (d) {
 						  	var percentage;
-						  	percentage = d.data / d3.sum(sisgDimGroup.all(), function(d){ return d.value; })
-				            return [
+// 							console.log('legend, d.data',d.data, d.name);
+// 							console.log('legend, sisgDimGroup.all()',sisgDimGroup.all());
+// 							console.log('legend, sisgDimGroup.size()',sisgDimGroup.size());
+							percentage = d.data / d3.sum(sisgDimGroup.all(), function(d){ return d.value; })
+// 						  	console.log('legend, percentage',percentage);	
+						  	return [
 				                d.name + ':',
 				                getSignaturDesc(d.name),     
 				                percentageFormat(percentage)
@@ -647,7 +651,11 @@ function load_data() {
 		    .othersLabel("Andre") 
 		    .title(function (d) {
 			  	var percentage, desc;
+// 				console.log('pie, d.value',d.value, d.key);	
+// 				console.log('pie, sisgDimGroup.all()',sisgDimGroup.all());	
+// 				console.log('pie, sisgDimGroup.size()',sisgDimGroup.size());
 			  	percentage = d.value / d3.sum(sisgDimGroup.all(), function(d){ return d.value; })
+// 			  	console.log('pie, percentage',percentage);	
 	            return [
 	                d.key + ':',
 	                getSignaturDesc(d.key),     
@@ -1327,7 +1335,7 @@ window.addEventListener('error', function (e) {
 		 	    		</td>
 
 		 	    		<td class="text12" >
-		 	    			<font class="text14">Fortollinger(exkl. linjer):</font><br>
+		 	    			<font class="text14">Hodenivå:</font><br>
 							<input type="checkbox" name="selectHeadOrRow" id="selectHeadOrRow">  	
 		 	    		</td>
 
