@@ -195,7 +195,7 @@
 					           			
 					           			&nbsp;<b>${user.versionEspedsg}</b>
 					           			<br/><br/>
-					           			&nbsp;<a href="renderLocalLog4j.do" target="_blank">log4j</a>
+					           			&nbsp;<a id="alinkLog4jLogger" ><font class="text14LightGreen" style="cursor:pointer;">log4j</font></a>
 					           			<br/><br/><br/>
 					           			<button name="versionInformationButtonClose" class="buttonGrayInsideDivPopup" type="button" onClick="hidePop('versionInfo');">Close</button> 
 					           		</span>
@@ -230,6 +230,46 @@
 		</c:if>
 
 	    <tr class="text" height="2"><td></td></tr>
+	    
+	    
+	    <%-- ------------------------- --%>
+		<%-- DIALOG render log4j.log   --%>
+		<%-- ------------------------- --%>
+		<tr>
+		<td>
+			<div id="dialogLogger" title="Dialog" style="display:none">
+			 	<table>
+			 		<tr>
+						<td colspan="3" class="text14" align="left" >Password</td>
+  					</tr>
+					<tr >
+						<td>
+							<input type="password" class="inputText" id="pwd" name="pwd" size="15" maxlength="15" value=''>
+						</td>
+					</tr>
+  					<tr height="5"><td></td></tr>
+  					<tr >
+						<td>
+							<input type="text" class="inputText" id="logLevel" name="logLevel" size="8" maxlength="8" value=''>
+						</td>
+					</tr>
+  					<tr height="10"><td></td></tr>
+  					
+					<tr>
+						<td colspan="3" class="text14MediumBlue" align="left">
+							<label id="loggerStatus"></label>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+		</tr>
+		
+		
+	    
+	    
+	    
+	    
 		
 		<%-- ------------------------------------
 		Content after banner och header menu
