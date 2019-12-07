@@ -128,6 +128,8 @@ public class DashboardController {
 		    }else{
 		    	//Decrypt password to be able to work with it. 
 		    	//All sub-modules will be passed an encrypted password (from the dashboard). ALWAYS!
+		    	appUser.setEncryptedUser(appUser.getUser());
+		    	appUser.setUser(this.aesManager.decrypt(appUser.getUser()));
 		    	appUser.setEncryptedPassword(appUser.getPassword());
 		    	appUser.setPassword(this.aesManager.decrypt(appUser.getPassword()));
 		    	//logger.info("DECRYPT...:" + appUser.getPassword());
@@ -153,7 +155,7 @@ public class DashboardController {
 			    	//int pwd = urlRequestParamsKeys.indexOf("&pwd");
 			    	//String credentailsPwd = urlRequestParamsKeys.substring(pwd + 5);
 			    	//logger.info("URL PARAMS: " + urlRequestParamsKeys.substring(0,pwd)+"&md5");
-			    	logger.info("URL PARAMS: " + urlRequestParamsKeys);
+			    	logger.debug("URL PARAMS: " + urlRequestParamsKeys);
 			    	
 			    	//--------------------------------------
 			    	//EXECUTE the FETCH (RPG program) here
@@ -200,7 +202,7 @@ public class DashboardController {
     					return loginView;
 			    		
 			    	}
-			    	
+			    	logger.warn("End of login ...");
 			    	//------------------------------------------------------------------------------------------------------
 			    	//If this tomcat port exists then the user will be redirect to the correct subsidiary-company tomcat.
 			    	//Note: To allow for a correct Company Tomcat from a Holding Company Web Portal.
@@ -210,7 +212,8 @@ public class DashboardController {
 			    	if(appUser.getTomcatPort()!=null && !"".equals(appUser.getTomcatPort())){
 				    	String urlRedirectTomcatToSubsidiaryCompany = this.getTomcatServerRedirectionUrl(appUser, request);
 				    	RedirectView rw = new RedirectView();
-				    	logger.info("Redirecting to:" + urlRedirectTomcatToSubsidiaryCompany);
+				    	logger.warn("Redirecting to lognWRedDashboard");
+				    	logger.debug("Redirecting to:" + urlRedirectTomcatToSubsidiaryCompany);
 				    	rw.setUrl(urlRedirectTomcatToSubsidiaryCompany);
 				    	successView = new ModelAndView(rw);
 			    	}*/
@@ -274,7 +277,7 @@ public class DashboardController {
 		    	//int pwd = urlRequestParamsKeys.indexOf("&pwd");
 		    	//String credentailsPwd = urlRequestParamsKeys.substring(pwd + 5);
 		    	//logger.info("URL PARAMS: " + urlRequestParamsKeys.substring(0,pwd)+"&md5");
-		    	logger.info("URL PARAMS: " + urlRequestParamsKeys);
+		    	logger.debug("URL PARAMS: " + urlRequestParamsKeys);
 		    	
 		    	//--------------------------------------
 		    	//EXECUTE the FETCH (RPG program) here
@@ -383,13 +386,13 @@ public class DashboardController {
 		try{
 			if(strMgr.isNotNull(trafikk)){
 				//Trafikk report
-				retval = hostRaw + request.getContextPath() + "/logonWRedDashboard.do?" + TRAFIKK_REPORT_FLAG + "=1" + "&ru=" + appUser.getUser() + "&dp=" + URLEncoder.encode(appUser.getEncryptedPassword(), "UTF-8");
+				retval = hostRaw + request.getContextPath() + "/logonWRedDashboard.do?" + TRAFIKK_REPORT_FLAG + "=1" + "&ru=" + URLEncoder.encode(appUser.getEncryptedUser(), "UTF-8") + "&dp=" + URLEncoder.encode(appUser.getEncryptedPassword(), "UTF-8");
 			}else{
 				//Förtullning NO
-				retval = hostRaw + request.getContextPath() + "/logonWRedDashboard.do?" + "ru=" + appUser.getUser() + "&dp=" + URLEncoder.encode(appUser.getEncryptedPassword(), "UTF-8");
+				retval = hostRaw + request.getContextPath() + "/logonWRedDashboard.do?" + "ru=" + URLEncoder.encode(appUser.getEncryptedUser(), "UTF-8") + "&dp=" + URLEncoder.encode(appUser.getEncryptedPassword(), "UTF-8");
 			}
 		}catch(Exception e){
-			//logger.info("XXXXX:" + request.getContextPath());
+			logger.info("XXXXX:" + e.toString());
 		}
 		return retval;
 	}
