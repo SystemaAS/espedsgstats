@@ -103,18 +103,14 @@ public class DashboardController {
 			successView = new ModelAndView("redirect:report_dashboard.do?report=report_trafikkregnskap_overview");
 		}
 		Map model = new HashMap();
-		SessionCookieManager cookieMgr = new SessionCookieManager();
 		
-		//Init cookie token since this page is excluded in the interceptor
-		cookieMgr.removeLocalCookie(response);
-		
-		//Encrypt user credentials as late as possible
+		//this module DOES NOT uses the cookie token (throug Session manager). This is because the connection to the espedsgtvinnsad module.
+		//STATs-module will not use any cookie token so far. (until we figure out some strategi with external modules
 		appUser.setEncryptedUser(appUser.getUser());
 		appUser.setUser(this.aesManager.decrypt(appUser.getUser()));
 		appUser.setEncryptedPassword(appUser.getPassword());
     	appUser.setPassword(this.aesManager.decrypt(appUser.getPassword()));
-		appUser.setEncryptedToken(this.aesManager.encrypt(request.getSession().getId() + "&" + appUser.getUser()));
-    	
+		
 		
 		
 		if(appUser==null){
@@ -197,8 +193,6 @@ public class DashboardController {
 	    					return loginView;
 				    	}
 				    	
-				    	//create cookie for security token
-				    	cookieMgr.addLocalCookieToken( appUser.getEncryptedToken(), response);
 				    	session.setAttribute(AppConstants.SYSTEMA_WEB_USER_KEY, appUser);
 				    	
 			    	}catch(Exception e){
