@@ -226,19 +226,29 @@ function load_data() {
     jq.blockUI({message : BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 
 	d3.json(runningUrl, function(error, data) {
+		console.log("step-1");	
+	
 		if (error) {
+			console.log("error-1"); 
+		
 			jq.unblockUI();
 			throw error;
 		}
 			
 		if (data.dtoList == '') {
+			console.log("error-2"); 
+
 			jq.unblockUI();
 			alert('Ingen data på urvalg.'); 
 			return "no data found";
 		}
-		
-		var tollData = data.dtoList;
-
+		console.log("step-2");
+		//console.log(data.dtoList);
+		//var tollData = data.dtoList;
+		var json = JSON.parse(data);
+		var tollData = json.dtoList;
+		console.log(tollData);
+		console.log("step-3");
 	    var NO = d3.locale(no_NO);
 	    var fullDateFormat = d3.time.format('%Y%m%d');
 	    var yearFormat = d3.time.format('%Y');
@@ -291,9 +301,11 @@ function load_data() {
 		  d.waxx = +d.waxx;
 		  d.waxxi = +d.waxxi;
 		});
-
+		console.log("step-4");
+		
 		// set crossfilter. Crossfilter runs in the browser and the practical limit is somewhere around half a million to a million rows of data.
-		var toll = crossfilter(tollData);	
+		var toll = crossfilter(tollData);
+		console.log("step-5");
 		var  all = toll.groupAll();
 		tolldataSize = toll.size();
 		//Dimensions
