@@ -4,7 +4,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 
@@ -18,7 +18,7 @@ import no.systema.main.context.TdsAppContext;
  *
  */
 public class MessageSourceHelper {
-	private static final Logger logger = Logger.getLogger(MessageSourceHelper.class.getName());
+	private static final Logger logger = LogManager.getLogger(MessageSourceHelper.class.getName());
 
 	private ApplicationContext context = null;
 	private Locale locale = null;
