@@ -4,7 +4,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 
@@ -18,7 +18,7 @@ import no.systema.main.context.TdsAppContext;
  *
  */
 public class MessageSourceHelper {
-	private static final Logger logger = LogManager.getLogger(MessageSourceHelper.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(MessageSourceHelper.class.getName());
 
 	private ApplicationContext context = null;
 	private Locale locale = null;
@@ -51,7 +51,7 @@ public class MessageSourceHelper {
 	 */
 	public String getMessage(String id, Object[] params) {
 		if (locale == null) {
-			logger.fatal("locale has not been initilized.");
+			logger.error("locale has not been initilized.");
 			throw new IllegalArgumentException("locale has not been initilized. Check use of constructor: public MessageSourceHelper(HttpServletRequest request)");
 		}
 		return context.getMessage(id, params, locale);

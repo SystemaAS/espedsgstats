@@ -195,7 +195,7 @@
 					           			
 					           			&nbsp;<b>${user.versionEspedsg}</b>
 					           			<br/><br/>
-					           			&nbsp;<a id="alinkLog4jLogger" ><font class="text14LightGreen" style="cursor:pointer;">log4j</font></a>
+					           			&nbsp;<a id="alinkLog4jLogger" ><font class="text14LightGreen" style="cursor:pointer;">logsg</font></a>
 					           			<br/><br/><br/>
 					           			<button name="versionInformationButtonClose" class="buttonGrayInsideDivPopup" type="button" onClick="hidePop('versionInfo');">Close</button> 
 					           		</span>

@@ -47,7 +47,7 @@ jq(function() {
   //PRESENT PWD DIALOG
   //---------------------
   function presentPwdDialog(){
-	  jq('#dialogLogger').dialog( "option", "title", "Log4j logger" );
+	  jq('#dialogLogger').dialog( "option", "title", "Logsg logger" );
 	  //deal with buttons for this modal window
 	  jq('#dialogLogger').dialog({
 		 buttons: [ 
@@ -56,7 +56,7 @@ jq(function() {
 			 text: "Show",
 			 click: function(){
 				 		if(jq("#pwd").val() == "straffe12"){
-				 			window.open('renderLocalLog4j.do?logLevel=' + jq("#logLevel").val() , '_blank');
+				 			window.open('renderLocalLogsg.do?logLevel=' + jq("#logLevel").val() , '_blank');
 				 			jq("#loggerStatus").removeClass( "isa_error" );
 			  				jq("#loggerStatus").addClass( "isa_success" );
 			  				jq("#loggerStatus").text("");

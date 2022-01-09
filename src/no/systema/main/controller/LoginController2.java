@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.ui.Model;
 import org.springframework.context.annotation.Scope;
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.util.AppConstants;
 
@@ -19,7 +19,7 @@ import no.systema.main.util.AppConstants;
 /*@SessionAttributes(Constants.APP_USER_KEY)
 @Scope("session")*/
 public class LoginController2 {
-	private static final Logger logger = LogManager.getLogger(LoginController2.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(LoginController2.class.getName());
 	
 	private ModelAndView loginView = new ModelAndView("login");
 

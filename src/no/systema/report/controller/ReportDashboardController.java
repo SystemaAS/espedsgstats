@@ -11,7 +11,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
@@ -44,7 +44,7 @@ import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
 @SessionAttributes(AppConstants.SYSTEMA_WEB_USER_KEY)
 @Scope("session")
 public class ReportDashboardController {
-	private static final Logger logger = LogManager.getLogger(ReportDashboardController.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(ReportDashboardController.class.getName());
 	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private CodeDropDownMgr codeDropDownMgr = new CodeDropDownMgr();
 

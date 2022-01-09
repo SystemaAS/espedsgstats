@@ -2,7 +2,7 @@ package no.systema.z.main.maintenance.controller;
 
 import java.util.*;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +37,7 @@ import no.systema.z.main.maintenance.util.MessageSourceHelper;
 
 @Controller
 public class MainMaintenanceGateController {
-	private static final Logger logger = LogManager.getLogger(MainMaintenanceGateController.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(MainMaintenanceGateController.class.getName());
 	private ModelAndView loginView = new ModelAndView("login");
 	private final String LANGUAGE_CODE_NORWAY = "NO";
 	private final String LANGUAGE_CODE_SWEDEN = "SV";
