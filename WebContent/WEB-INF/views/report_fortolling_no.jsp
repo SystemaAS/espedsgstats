@@ -248,6 +248,14 @@ function load_data() {
 		var json = JSON.parse(data);
 		var tollData = json.dtoList;
 		console.log(tollData);
+		if (tollData == '') {
+			console.log("error-2.b"); 
+			jq.unblockUI();
+			alert('Ingen data på urvalg.'); 
+			return "no data found";
+		}
+		
+		
 		console.log("step-3");
 	    var NO = d3.locale(no_NO);
 	    var fullDateFormat = d3.time.format('%Y%m%d');
@@ -307,6 +315,7 @@ function load_data() {
 		var toll = crossfilter(tollData);
 		console.log("step-5");
 		var  all = toll.groupAll();
+		console.log("step-6");
 		tolldataSize = toll.size();
 		//Dimensions
 		var  tollAllDim = toll.dimension(function(d) {return d;});	
@@ -328,7 +337,8 @@ function load_data() {
 	        } else {
 	            return 'mer enn 9'; //> 9
 	        }
-    	});		
+    	});	
+	    console.log("step-7");
 	    var  inputTypeDim  = toll.dimension(function(d) {
 	        var inputType = d.inputtype;
 	        if (inputType != null && inputType != "") {
@@ -372,6 +382,7 @@ function load_data() {
 		var  waxvixDisplay = dc.numberDisplay("#waxvix");	
 		var  waxxDisplay = dc.numberDisplay("#waxx");	
 		var  waxxiDisplay = dc.numberDisplay("#waxxi");	
+		console.log("step-8");
 		//Groups
 		if (isHead) {
 			var  avdDimGroup = avdDim.group().reduceSum(function(d) {return 1;});
@@ -390,6 +401,7 @@ function load_data() {
 	 		var  openDaysDimGroup = openDaysDim.group().reduceSum(function(d) {return d.reg_vareposter;});
 	 		var  avsenderLandDimGroup = avsenderLandDim.group().reduceSum(function(d) {return d.reg_vareposter;});
 		}
+		console.log("step-9");
 		//Group reduce
 	    var dateDimGroup =  dateDim.group().reduce(   
 	            /* callback for when data is added to the current filter results */
@@ -415,7 +427,7 @@ function load_data() {
 	                };
 	            }
 	    );  
-		
+	    console.log("step-10");
 	    var monthDimGroup =  monthDim.group().reduce(   
 	            function (p, v) {
 	                ++p.count;
@@ -744,6 +756,7 @@ function load_data() {
 		     .formatNumber(d3.format(".g"))
 			 .valueAccessor(function (p) {
 				 return p.value.count;
+				 
 			  });
 		
 		antallreg_vareposterDisplay
@@ -968,7 +981,7 @@ function load_data() {
 			.valueAccessor(function (p) {
 					return p.value.waxvix;
 			});			
-		
+		console.log("step-11");
 		waxxDisplay
 			.group(omsetningsGroup)  
 			.formatNumber(d3.format(".g"))
@@ -979,7 +992,7 @@ function load_data() {
 			.valueAccessor(function (p) {
 					return p.value.waxx;
 			});	
-
+		console.log("step-12");
 		waxxiDisplay
 			.group(omsetningsGroup)  
 			.formatNumber(d3.format(".g"))
@@ -990,7 +1003,7 @@ function load_data() {
 			.valueAccessor(function (p) {
 					return p.value.waxxi;
 			});	
-		
+		console.log("step-13");
 		varuposterChart
 			.width(1300)
 			.height(500)
@@ -1057,7 +1070,7 @@ function load_data() {
 			.xAxis().tickFormat(function(d) { 
 				return d.substr(3); 
 			});
-
+		console.log("step-14");
 	   	d3.selectAll('a#all').on('click', function () {
 	     	dc.filterAll();
 	     	dc.renderAll();
@@ -1108,7 +1121,7 @@ function load_data() {
 			dc.redrawAll();
 			jq('#merknad-filter').val("");
 		});		
-		
+		console.log("step-15");
 		dataCount
 		      .dimension(toll)
 		      .group(all)
@@ -1131,7 +1144,7 @@ function load_data() {
 			
 	        saveAs(blob, 'fortolling_no-' + today + '.xls');
 	    });	
-	
+		console.log("step-16");
 		var dataTable;
 	    dcDataTable = dc.dataTable('#data-table');
 		dcDataTable
@@ -1160,7 +1173,7 @@ function load_data() {
   				} 	      	
 		      	
 	 		});	    
-		
+		console.log("step-17");
 		function renderDataTable() {
 		    console.log("renderDataTable..");
 			dcDataTable.render();
@@ -1217,9 +1230,13 @@ function load_data() {
 		}
 
 		tolldataSize = toll.size();
-		  
-		dc.renderAll(); 
-		
+		console.log("step-18");
+		if(dc!=null){
+			dc.renderAll();
+		}else{
+			console.log("dc at dc.renderAll() is null ???"); 
+		}
+		console.log("step-19");
 		jq('#showTable' ).unbind('click').click(function() {  //to avoid multiple definition, hence running load_data() over again.
 		//jq('#showTable' ).click(function() {
 			if (jq( '#detailsTable' ).is(":visible")) {
